@@ -23,4 +23,16 @@ export class ArrayUtilProvider {
         )
   }
 
+  searchItemsByStringField(items: Array<any>, field: string, param: string){
+
+    return items.filter(
+      item => {
+        if(typeof item[field] == "string" ){
+          let stringValue = item[field] as string;
+          return stringValue.toLowerCase().includes(param.toLowerCase());
+        }
+      }
+    )
+  }
+
 }

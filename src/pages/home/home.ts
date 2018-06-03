@@ -14,9 +14,11 @@ import { StorageProvider } from '../../providers/storage/storage';
 })
 export class HomePage {
 
-  private rssData: Array<FeedItem>;
-
   private readonly storageKey = 'feedItems';
+
+  private rssData: Array<FeedItem>;
+   //se guarda la lista completa para poder restaurarla al hacer búsquedas
+  private fullRssData: Array<FeedItem>;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -34,6 +36,7 @@ export class HomePage {
       data => {
         //se obtienen los datos y se ordenan por fecha de manera inversa (de más reciente a más lejana)
         this.rssData = this.arrayUtilProvider.sortItems(data, "date", true); 
+        this.fullRssData = this.rssData;
         this.storageProvider.saveData(this.storageKey, this.rssData);
         console.log(data);
       },
@@ -42,6 +45,7 @@ export class HomePage {
         this.storageProvider.getDataByKey(this.storageKey).then(
           feedItems => {
             this.rssData = feedItems;
+            this.fullRssData = feedItems;
           }
         );
       }
@@ -53,6 +57,16 @@ export class HomePage {
     this.navCtrl.push(FeedDetailPage, {
       item: item
     });
+  }
+
+  searchFeeds(ev: any) {
+    
+    this.rssData = this.fullRssData; //se restaura la lista con todos los elementos
+    const val = ev.target.value;
+
+    if (val && val.trim() != '') {
+      this.rssData = this.arrayUtilProvider.searchItemsByStringField(this.rssData, "title", val);
+    }
   }
 
 }
