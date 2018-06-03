@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { FeedDetailPage } from '../pages/feed-detail/feed-detail';
 import { RssProvider } from '../providers/rss/rss';
 import { ArrayUtilProvider } from '../providers/array-util/array-util';
 
@@ -14,7 +15,8 @@ import { ArrayUtilProvider } from '../providers/array-util/array-util';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    FeedDetailPage
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { ArrayUtilProvider } from '../providers/array-util/array-util';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    FeedDetailPage
   ],
   providers: [
     StatusBar,

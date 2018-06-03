@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RssProvider } from '../../providers/rss/rss';
 import { FeedItem } from '../../models/FeedItem';
 import { ArrayUtilProvider } from '../../providers/array-util/array-util';
+import { FeedDetailPage } from '../feed-detail/feed-detail';
 
 
 
@@ -37,6 +38,13 @@ export class HomePage {
         console.log(<any>error);
       }
     );
+  }
+
+
+  navToDetailsPage(item: FeedItem){
+    this.navCtrl.push(FeedDetailPage, {
+      item: item
+    });
   }
 
 }
