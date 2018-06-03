@@ -9,14 +9,15 @@
 
 <ion-content padding>
 
-    <ion-list>
-        <ion-item *ngFor="let item of rssData" (tap)="navToDetailsPage(item)">
-            <ion-thumbnail item-start>
-              <img src="{{item.image}}">
-            </ion-thumbnail>
-            <h2>{{item.title}}</h2>
-            <p text-wrap class="block-text-limit" [innerHTML]="item.text"></p>
-        </ion-item>
-      </ion-list>
+  <ion-searchbar placeholder="Buscar por título" (ionInput)="searchFeeds($event)"></ion-searchbar>
+  <ion-list>
+      <ion-item *ngFor="let item of rssData" (tap)="navToDetailsPage(item)">
+          <ion-thumbnail item-start>
+            <img src="{{item.image}}">
+          </ion-thumbnail>
+          <h2>{{item.title}}</h2>
+          <p text-wrap class="block-text-limit" [innerHTML]="item.text"></p>
+      </ion-item>
+  </ion-list>
 
 </ion-content>
