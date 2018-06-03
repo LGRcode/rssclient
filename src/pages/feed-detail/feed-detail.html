@@ -20,7 +20,7 @@
     <p [innerHTML]="feedItem.text"></p>
     <br>
 
-    <a [attr.href]="feedItem.url"
+    <a ion-button block [attr.href]="feedItem.url"
       onclick='window.open(this.href, "_system", "location=yes"); return false;'>
       Ver en el navegador
     </a>
