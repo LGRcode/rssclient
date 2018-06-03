@@ -10,26 +10,27 @@ export class RssProvider {
 
   constructor(public http: HttpClient) {  }
 
+  //obtiene los feeds de RTVE y los guarda en objetos FeedItem
   getRtveRssFeeds(): Observable<Array<FeedItem>>{
 
     const url_feeder = 'http://www.rtve.es/api/noticias.json';
 
     let response = this.http.get(url_feeder).map(
-      res => res["page"]["items"].map(
-        item =>  {
-          return new FeedItem (
-            item["title"],
-            item["summary"],
-            item["image"],
-            item["text"],
-            item["htmlShortUrl"],
-            item["publicationDateTimestamp"]
-          )
-        }
-      )
+      res => this.mapToRtveFeeds(res)
     );
 
     return response;
   }
 
+  private mapToRtveFeeds(res: Object): any {
+    return res["page"]["items"].map(item => {
+      return new FeedItem(
+          item["title"], 
+          item["summary"], 
+          item["image"], 
+          item["text"], 
+          item["htmlShortUrl"], 
+          item["publicationDateTimestamp"]);
+    });
+  }
 }

@@ -1,0 +1,14 @@
+Reto App ionic Lector RSS (ionic3 / Angular5):
+
+Ya que el entorno de Ionic proporciona una estructura siguiendo un modelo MVC bastante claro,
+se ha respetado esta arquitectura para la aplicación, tan sólo añadiendo una carpeta para las
+entidades/modelos con el objetivo de que quedase mejor organizado.
+Se ha intentado hacer métodos y clases (en algunos providers básicamente) que se puedan reutilizar.
+
+
+Se ha instalado el plugin cordova-sqlite-storage para la función de persistencia de la lista
+de feeds.
+
+Se ha intentado que el nombre los métodos, variables y constantes sean lo suficiente autoexplicativos
+como para evitar tener que poner demasiados comentarios explicando el códigoS
+

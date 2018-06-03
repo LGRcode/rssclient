@@ -42,6 +42,7 @@ export class HomePage {
       },
       error => {
         console.log(<any>error);
+        //en caso de error intenta obtener el listado que se haya guardado en BBDD
         this.storageProvider.getDataByKey(this.storageKey).then(
           feedItems => {
             this.rssData = feedItems;
@@ -61,7 +62,8 @@ export class HomePage {
 
   searchFeeds(ev: any) {
     
-    this.rssData = this.fullRssData; //se restaura la lista con todos los elementos
+    //lo primero se restaura la lista con todos los elementos
+    this.rssData = this.fullRssData; 
     const val = ev.target.value;
 
     if (val && val.trim() != '') {
