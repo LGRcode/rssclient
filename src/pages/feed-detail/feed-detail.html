@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>FeedDetail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <h2>{{feedItem.title}}</h2>
+
+    <div class="feedDetailImg">
+      <img src="{{feedItem.image}}" >
+    </div>
+
+    <p [innerHTML]="feedItem.summary"></p>
+    <br>
+    <p [innerHTML]="feedItem.text"></p>
+    <br>
+
+    <a [attr.href]="feedItem.url"
+      onclick='window.open(this.href, "_system", "location=yes"); return false;'>
+      Ver en el navegador
+    </a>
+
+</ion-content>
