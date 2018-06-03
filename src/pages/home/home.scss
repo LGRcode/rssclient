@@ -1,3 +1,14 @@
 page-home {
 
+    .block-text-limit {
+        overflow: hidden;
+        position: relative; 
+        line-height: 1.2em;
+        /* max-height = line-height (1.2) * max lineas (2) */
+        max-height: 2.4em; 
+        text-align: justify;  
+        margin-right: -1em;
+        padding-right: 1em;
+      }
+
 }
