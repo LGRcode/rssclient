@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RssProvider } from '../providers/rss/rss';
+import { ArrayUtilProvider } from '../providers/array-util/array-util';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { RssProvider } from '../providers/rss/rss';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RssProvider
+    RssProvider,
+    ArrayUtilProvider
   ]
 })
 export class AppModule {}
